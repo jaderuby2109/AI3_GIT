@@ -1,4 +1,4 @@
--- Active: 1745889706777@@127.0.0.1@3306@employees
+
 -- NOW() : 현재 날짜/시간, CURDATE() : 현재 날짜, CURTIME() : 현재 시간
 SELECT NOW(), CURDATE(), CURTIME();
 
@@ -24,7 +24,7 @@ LIMIT 10;
 -- 오늘로부터 5년뒤는 몇년도
 SELECT  YEAR( DATE_ADD(NOW(), INTERVAL 5 YEAR) ) AS 5년후;
 
--- 입사한지 30년이 넘은 사원 조회
+-- 입사한지 40년이 넘은 사원 조회
 SELECT hire_date 
 FROM employees
 WHERE TIMESTAMPDIFF(YEAR, hire_date, NOW()) >= 40
@@ -51,24 +51,26 @@ SELECT DATE_SUB(STR_TO_DATE('2025-09-17', '%Y-%m-%d') , INTERVAL 2 MONTH) AS 종
 SELECT DATE_SUB(STR_TO_DATE('2025-09-17', '%Y-%m-%d') , INTERVAL 1 YEAR) AS 종강10일전;
 
 -- DATE_ADD(날짜, INTERVAL 값 단위)
-DATE_SUB(날짜, INTERVAL 값 단위)
-DATEDIFF(날짜1, 날짜2)
-STR_TO_DATE(문자열, 형식)
+-- DATE_SUB(날짜, INTERVAL 값 단위)
+-- DATEDIFF(날짜1, 날짜2)
+-- STR_TO_DATE(문자열, 형식)
 
 
-SELECT abs(DATEDIFF(from_date,  to_date)) AS 근속년수
+SELECT abs(DATEDIFF(from_date,  to_date)) AS 근속일수
 FROM dept_emp
 WHERE to_date <> '9999-01-01'
-ORDER BY 근속년수 DESC
+ORDER BY 근속년수 DESC;
 
-SELECT DISTINCT(TIMESTAMPDIFF(YEAR, from_date, to_date)) AS 근속년수
+SELECT DISTINCT(TIMESTAMPDIFF(YEAR, from_date, to_date)) AS '부서 근속년수'
 FROM dept_emp
 WHERE to_date <> '9999-01-01'
-ORDER BY 근속년수 DESC
+ORDER BY '부서 근속년수' DESC;
 
-SELECT DISTINCT(TIMESTAMPDIFF(YEAR, from_date, to_date)) AS 근속년수
+SELECT DISTINCT(TIMESTAMPDIFF(YEAR, from_date, to_date)) AS '부서 근속년수'
 FROM dept_emp
 WHERE YEAR(to_date) <> '9999'
-ORDER BY 근속년수 DESC
+ORDER BY '부서 근속년수' DESC ;
 
-SELECT * FROM dept_emp
+SELECT * FROM dept_emp;
+
+SELECT DATE_FORMAT( NOW(), '%Y-%m-%d' );

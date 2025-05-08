@@ -28,7 +28,8 @@ from employees
 -- 단, 커미션과 보너스가 둘 다 있는 경우는 커미션만 출력
 SELECT emp_no
 , name
-,  COALESCE((commission_pct*salary)*12, bonus, 0) as 수당
+,COALESCE((salary*commission_pct)*12, bonus, 0) AS '수당'
+,COALESCE((salary*commission_pct)*12 + IFNULL(bonus,0), bonus, 0) AS '수당'
 from employees
 
 

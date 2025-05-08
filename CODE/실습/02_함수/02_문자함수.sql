@@ -1,22 +1,18 @@
--- Active: 1745889706777@@127.0.0.1@3306@employees
 -- 문자열을 대문자, 소문자, 첫글자만 대문자로 변환하는 쿼리
 SELECT 'AlohA WoRlD~!' as 원문 
 , UPPER('AlohA WoRlD~!') as 대문자
-, LOWER('AlohA WoRlD~!') as 소문자;
+, LOWER('AlohA WoRlD~!') as 소문자 ;
 
--- 문자열의 바이트 수를 반환하는 쿼리
+-- 문자열의 바이트 수, 글자수를 반환하는 쿼리
 -- 영문, 공백 : 1Byte
 -- 한글       : 3Byte
 SELECT 'AlohA WoRlD~!' as 원문 
-, LENGTH('AlohA WoRlD~!') as 글자수
-,'알로하 클래스' as 원문 
-, LENGTH('알로하 클래스') as 글자수;
-
--- 문자열의 문자 수를 반환하는 쿼리
-SELECT 'AlohA WoRlD~!' as 원문 
+, LENGTH('AlohA WoRlD~!') as 바이트수
 , CHAR_LENGTH('AlohA WoRlD~!') as 글자수
 ,'알로하 클래스' as 원문 
+, LENGTH('알로하 클래스') as 바이트수
 , CHAR_LENGTH('알로하 클래스') as 글자수;
+
 
 -- 주어진 문자열을 연결하는 쿼리
 SELECT CONCAT('AlohA','WoRlD~!') as `CONCAT`
@@ -47,3 +43,10 @@ SELECT 'ALOHACLASS' AS 원문
 , LPAD('ALOHACLASS', 20, '*') AS 왼쪽
 , RPAD('ALOHACLASS', 20, '*') AS 오른쪽
 , RPAD(LPAD('ALOHACLASS', 15, '*'), 20, '*') AS 가운데
+
+
+-- 'wwwaloha@kakao.com' 이메일 주소에서 
+-- '@' 문자가 몇 번째 위치하는지 출력하시오.
+-- LOCATE('찾을 문자', '문자열')
+SELECT 'wwwaloha@kakao.com' AS '이메일주소'
+      ,LOCATE('@', 'wwwaloha@kakao.com') AS '@위치' ;

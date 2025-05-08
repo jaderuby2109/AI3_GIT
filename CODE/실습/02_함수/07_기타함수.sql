@@ -1,5 +1,14 @@
 -- Active: 1745889706777@@127.0.0.1@3306@aloha
 
+/*
+    CASE
+        WHEN 조건식 THEN 값
+        WHEN 조건식 THEN 값
+        WHEN 조건식 THEN 값
+        ELSE 값
+    END
+*/
+
 -- CASE WHEN 조건 THEN 결과 ELSE 결과 END
 -- 조건에 따른 결과를 반환하는 조건문
 SELECT
@@ -12,11 +21,7 @@ SELECT
         WHEN dept_no = '104' THEN '4호실'
         ELSE '5호실'
     END as 교실
-FROM employees
--- where 교실 = '1호실' ;
-
-
-
+FROM employees;
 
 
 
@@ -39,4 +44,4 @@ FROM employees
 
 -- USER()
 -- 현재 접속한 사용자 정보를 반환
-select VERSION(), DATABASE(), USER()
+select VERSION(), DATABASE(), USER() ;
